@@ -68,3 +68,9 @@ Swift Medical Systems is an industry leader in Hospital Management Systems. Our 
 
 ### TESTING: 
 * Create new user or use: `user: sfisher@gmail.com` and `pass: password`
+
+## Security and other
+* User friendly responsive design through bootstrap
+* Implements security features against SQL injection
+* Implements safe password hashing for user retreval and no password storage
+* Implements error handling on server side
