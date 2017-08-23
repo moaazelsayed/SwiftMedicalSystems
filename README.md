@@ -23,7 +23,11 @@ Swift Medical Systems is an industry leader in Hospital Management Systems. Our 
 * Dynamic Pie chart representing users
 * Clicking on different user types in pie legend temproraly hides them and displays new pie chart
 * Dynamic table created from user profiles
-* Search box queries based on first name, last name, user type and email
+* Search box queries based on:
+-> First name
+-> Last name
+-> User type
+-> Email
 * Clicking on header of each column sorts column by ascending or descending order
 * Dynamic page reference based on amount of enteries and number of entries per page
 
@@ -39,7 +43,12 @@ Swift Medical Systems is an industry leader in Hospital Management Systems. Our 
 
 ## Doctor
 * Dynamic table created from patient appointments
-* Search box queries based on patient email, doctor email, appointment date and time, appointment reason and appointment id
+* Search box queries based on:
+-> patient email
+-> doctor email
+-> appointment date and time
+-> appointment reason 
+-> appointment id
 * Clicking on header of each column sorts column by ascending or descending order
 * Dynamic page reference based on amount of enteries and number of entries per page
 
@@ -48,7 +57,12 @@ Swift Medical Systems is an industry leader in Hospital Management Systems. Our 
 
 ## Nurse
 * Dynamic table created from patient appointments
-* Search box queries based on patient email, doctor email, appointment date and time, appointment reason and appointment id
+* Search box queries based on:
+-> patient email
+-> doctor email
+-> appointment date and time
+-> appointment reason 
+-> appointment id
 * Clicking on header of each column sorts column by ascending or descending order
 * Dynamic page reference based on amount of enteries and number of entries per page
 
