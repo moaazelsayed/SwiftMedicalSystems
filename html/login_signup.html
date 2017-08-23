@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Login</title>
+
+<link rel="stylesheet" type="text/css" href="../css/login_signup.css">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap2.min.css">
+
+<script src="../js/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/login_signup.js"></script>
+
+</head>
+
+<body id="page-top">
+	<div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Login</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Register</a>
+							</div>
+						</div>
+						<hr>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="form-group">
+									<div id="warning" style="color:red; display: block; text-align: center; font-size:25px;"></div>
+								</div>
+								<form id="login-form" action="login_page.php" method="post" role="form" style="display: block;">
+									<div id="login" value="login" style="display:hidden;"></div>
+									<div class="form-group">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="" required>
+									</div>
+									<div class="form-group">
+										<input type="password" name="password2" id="password2" tabindex="2" class="form-control" placeholder="Password" required>
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Remember Me</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+											</div>
+										</div>
+									</div>
+								</form>
+								<form id="register-form" action="signup_page.php" method="post" role="form" style="display: none;">
+									<div id="signup"value="signup" style="display:hidden;"></div>
+									<div class="form-group">
+										<input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="First Name" value="" required>
+									</div>
+									<div class="form-group">
+										<input type="text" name="lastname" id="lastname" tabindex="1" class="form-control" placeholder="Last Name" value="" required>
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" required>
+									</div>
+									<div class="form-group">
+										<input type="password" name="password1" id="password1" tabindex="2" class="form-control" placeholder="Password" required>
+									</div>
+									<div class="form-group">
+										<input type="password" name="confirm_password" id="confirm_password" tabindex="2" class="form-control" placeholder="Confirm Password" required>
+									</div>
+									<div class="form-group">
+										<div class="dropdown">
+											<input id="ucode" name="ucode" type="hidden" value="">
+											<button id="ddButton" class="btn dropdown-toggle form-control" type="button" data-toggle="dropdown" style="text-align:left;">
+												Type of User
+												<span class="caret"></span>
+											</button>
+											<ul id="ddlist" class="dropdown-menu form-control">
+												<li><a onclick="updateList('Admin')" href="#">Admin</a></li>
+												<li><a onclick="updateList('Doctor')" href="#">Doctor</a></li>
+												<li><a onclick="updateList('Nurse')" href="#">Nurse</a></li>
+												<li><a onclick="updateList('Patient')" href="#">Patient</a></li>
+											</ul>
+										</div>
+									</div>
+									<div id="deptForm" class="form-group" hidden>
+				                      <label for="dept">Department:</label>
+				                      <div id="dept" name="dept">
+				                        <input type="radio" name="deptid" value="111" id="111" checked>&nbsp; Critical Care<br>
+				                        <input type="radio" name="deptid" value="222" id="222">&nbsp; Cardiology<br>
+				                        <input type="radio" name="deptid" value="333" id="333">&nbsp; Gastroenterology<br>
+				                        <input type="radio" name="deptid" value="444" id="444">&nbsp; Dermatology<br>
+				                        <input type="radio" name="deptid" value="555" id="555">&nbsp; General Care<br>
+				                      </div>
+				                    </div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+$(document).ready(function(){
+	updateList = function(value){
+		$("#ddButton").html(value);
+		$("#ucode").val(value);
+		if ($("#ucode").val() == 'Doctor'){
+			$("#deptForm").show();
+		} else {
+			$("#deptForm").hide();
+		}
+	}
+})
+</script>
+<script>
+$(document).ready(function(){
+	$("#password1").keyup(function(){
+		var val = $("#password1").val();
+		if (val.length < 6){
+			$("#warning").show();
+			$("#warning").html("Password must be at least 6 characters!");
+		} else {
+			$("#warning").hide();
+		}
+	});
+	$("#confirm_password").keyup(function(){
+		var val = $("#confirm_password").val();
+		if (val != $("#password1").val()){
+			$("#warning").show();
+			$("#warning").html("Confirmation must match password!");
+		} else {
+			$("#warning").hide();
+		}
+	});
+})
+</script>
+</html>
